@@ -23,30 +23,50 @@ Referencia de la Arquitectura (*pendiente actualización con AWS*):
 El objetivo final del ataque es transmitir un ransomware enmascarado como un reporte a todos los clientes del servicio. Para lo cual, se realiza un primer ataque a la organización proveedora del servicio para acceder a la información de los clientes y luego enviar el reporte con el malware.
 
 ### 1. Reconnaisssance
+> Búsqueda de vulnerabilidades y reconocimiento del objetivo para realizar el ataque.
+
 Técnicas utilizadas: [T1589](https://attack.mitre.org/techniques/T1589), [T1591](https://attack.mitre.org/techniques/T1591), [T1593](https://attack.mitre.org/techniques/T1593).
-* Obtener información de los empleados de la empresa proveedora del servicio ([T1589.003](https://attack.mitre.org/techniques/T1589/003/)) y sus roles ([T1591.004](https://attack.mitre.org/techniques/T1591/004/)). 
-* Específicamente se busca en redes sociales ([T1593.001](https://attack.mitre.org/techniques/T1593/001/)) esta información para encontrar empleados que puedan tener acceso a la base de datos de clientes.
+
+* Obtener información de los empleados de la empresa proveedora del servicio [[T1589.003](https://attack.mitre.org/techniques/T1589/003/)] y sus roles [[T1591.004](https://attack.mitre.org/techniques/T1591/004/)]. 
+* Específicamente se busca en redes sociales [[T1593.001](https://attack.mitre.org/techniques/T1593/001/)] esta información para encontrar empleados que puedan tener acceso a la base de datos de clientes.
 
 ### 2. Weaponization
+> Preparación de los recursos necesarios para ejecutar el plan de ataque.
+
+Técnicas utilizadas: [T1583](https://attack.mitre.org/techniques/T1583), [T1585](https://attack.mitre.org/techniques/T1585), [T1588](https://attack.mitre.org/techniques/T1588).
+
+* Adquirir un Servidor Virtual (VPS) y un dominio para crear un sitio web que simule ser un sistema interno de la empresa.
+* Se establece un correo electrónico en base al dominio creado, desde donde se enviará un ataque de phishing [[T1585.002](https://attack.mitre.org/techniques/T1585/002)].
+* Adquirir malware que sirva para ejecutar el secuestro de los sistemas objetivo (ransomware) [[T1588.001](https://attack.mitre.org/techniques/T1588/001)].
+
+### 3. Delivery
+> Envío de los recursos establecidos anteriormente para lograr un acceso inicial al sistema.
+
+Técnicas utilizadas: [T1566](https://attack.mitre.org/techniques/T1566), [T1204](https://attack.mitre.org/techniques/T1204)
+
+* Se envía un email de phishing que simule ser una alerta por parte del proveedor cloud, avisando que el sistema tiene un problema en la base de datos y requiere su atención [[T1566.002](https://attack.mitre.org/techniques/T1566/002/)].
+* El enlace envía al sitio web previamente preparado que simula ser el servicio de login del proveedor cloud y pide al usuario ingresar con sus datos [[T1204.001](https://attack.mitre.org/techniques/T1204/001/)].
+* El usuario ingresa sus datos, los cuales son enviados a la base de datos del servidor privado y luego es inmediatamente redirigido al sitio real de login, donde recibe un error de clave errónea.
+* El usuario ingresa al sistema y no percibe que fue víctima del ataque.
+### 4. Exploitation
+> Explotación de la vulnerabilidad y acceso inicial al sistema.
+
+Técnicas utilizadas: [T1078](https://attack.mitre.org/techniques/T1078)
+
+* 
+* 
+### 5. Installation
+> Ejecución del ataque dentro del sistema.
+
 Técnicas utilizadas:
 
 * 
 * 
 
-### 3. Delivery
-
-* 
-* 
-### 4. Exploitation
-
-* 
-* 
-### 5. Installation
-
-* 
-* 
-
 ### 6. Command & Control
+>
+
+Técnicas utilizadas:
 
 * 
 * 
