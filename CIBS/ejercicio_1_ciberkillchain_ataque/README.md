@@ -55,26 +55,27 @@ Técnicas utilizadas: [T1078](https://attack.mitre.org/techniques/T1078)
 
 * Se usan las credenciales obtenidas en el paso anterior para acceder al proveedor cloud [[T1078.004](https://attack.mitre.org/techniques/T1078/004/)].
 * Como la cuenta es de administrador, se tienen todos los privilegios.
+
 ### 5. Installation
 > Ejecución del ataque dentro del sistema.
 
 Técnicas utilizadas: [[T1651](https://attack.mitre.org/techniques/T1651/)]
 
 * Una vez dentro del sistema, se procede a tomar control administrativo del mismo.
-* Si la víctima no utiliza control de acceso con IAM, entonces se reinicia la contraseña maestra de la base de datos para lograr acceder (en un horario donde la víctima no esté disponible - monitoreando sus redes sociales).
-* Si la víctima usa un acceso con IAM, entonces se genera un token de autentificación para poder realizar la conexión a la base de datos.
+* Suponiendo que el acceso a la base de datos está configurada con IAM, entonces se genera un token de autentificación para poder realizar la conexión a la base de datos.
 * Se accede también al servicio de envío de emails (p.ej. Amazon SES).
 ### 6. Command & Control
 > Se establece un canal de comunicación para controlar remotamente a la víctima.
 
-Técnicas utilizadas:
+Técnicas utilizadas: [T1090](https://attack.mitre.org/techniques/T1090/)
 
-* 
-* 
+* Para evitar la detección del origen del ataque se utilizan múltiples proxies para redirigir las comunicaciones a través de diferentes puntos [[T1090.003](https://attack.mitre.org/techniques/T1090/003/)].
 
 ### 7. Actions on Objectives
 
-* Se extraen los datos de la base de datos con la información de los clientes.
+Técnicas utilizadas: [T1119](https://attack.mitre.org/techniques/T1119/), [T1538](https://attack.mitre.org/techniques/T1538/)
+
+* Se identifican los datos de la base de datos con la información de los clientes utilizando la conexión a la base de datos y una aplicación de ETL (Extract, Transform, Load). 
 * Se prepara un email simulando ser un reporte y se adjunta un archivo malicioso.
-* Se envía un email a la lista de clientes a través del servicio de envío de emails.
+* Se envía un email a la lista de clientes a través del servicio de envío de emails, utilizando el Dashboard del proveedor cloud.
 
