@@ -4,11 +4,30 @@ Hacer una copia de este documento para utilizar com plantilla para el ejercicio 
 
 ## Alumno
 
-(completar)
+Simón Rodríguez
 
 ## Enunciado
 
 Armar una cyberkillchain usando técnicas de la matriz de Att&ck para un escenario relacionado al trabajo práctico de la carrera.
+
+
+### Objetivo del Ataque
+
+
+### Reconnaisssance
+
+### Weaponization
+
+### Delivery
+
+### Exploitation
+
+### Installation
+
+### Command & Control
+
+### Actions on Objectives
+
 
 ### Instrucciones
 
