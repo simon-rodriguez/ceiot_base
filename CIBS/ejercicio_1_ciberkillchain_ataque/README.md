@@ -12,7 +12,7 @@ Armar una cyberkillchain usando técnicas de la matriz de Att&ck para un escenar
 
 *Nota: El trabajo práctico objetivo es un supuesto ficticio y no el trabajo práctico de la carrera.*
 
-El sistema está compuesto por un módulo IOT que sensa la humedad y temperatura de un recinto. Los datos son enviados a través del protocolo MQTT a un proveedor en la nube donde se reciben y almacenan los datos, para luego ser accedidos en el front-end por el usuario (bien sea por una aplicación o un sitio web). El usuario puede descargar reportes y realizar configuraciones al sistema, además de crear alertas y reportes personalizados. El servicio es usado por varios clientes diferentes.
+El sistema está compuesto por un módulo IOT que sensa la humedad y temperatura de un recinto. Los datos son enviados a través del protocolo MQTT a un proveedor en la nube (AWS en este caso) donde se reciben y almacenan los datos, para luego ser accedidos en el front-end por el usuario (bien sea por una aplicación o un sitio web). El usuario puede descargar reportes y realizar configuraciones al sistema, además de crear alertas y reportes personalizados. El servicio es usado por varios clientes diferentes.
 
 Referencia de la Arquitectura (*pendiente actualización con AWS*):
 ![Arquitectura Cloud del TP de DAIoT](/ceiot_base/img/arquitectura-cloud_daiot.jpg)
@@ -53,25 +53,28 @@ Técnicas utilizadas: [T1566](https://attack.mitre.org/techniques/T1566), [T1204
 
 Técnicas utilizadas: [T1078](https://attack.mitre.org/techniques/T1078)
 
-* 
-* 
+* Se usan las credenciales obtenidas en el paso anterior para acceder al proveedor cloud [[T1078.004](https://attack.mitre.org/techniques/T1078/004/)].
+* Como la cuenta es de administrador, se tienen todos los privilegios.
 ### 5. Installation
 > Ejecución del ataque dentro del sistema.
 
-Técnicas utilizadas:
+Técnicas utilizadas: [[T1651](https://attack.mitre.org/techniques/T1651/)]
 
-* 
-* 
-
+* Una vez dentro del sistema, se procede a tomar control administrativo del mismo.
+* Si la víctima no utiliza control de acceso con IAM, entonces se reinicia la contraseña maestra de la base de datos para lograr acceder (en un horario donde la víctima no esté disponible - monitoreando sus redes sociales).
+* Si la víctima usa un acceso con IAM, entonces se genera un token de autentificación para poder realizar la conexión a la base de datos.
+* Se accede también al servicio de envío de emails (p.ej. Amazon SES).
 ### 6. Command & Control
->
+> Se establece un canal de comunicación para controlar remotamente a la víctima.
 
 Técnicas utilizadas:
 
 * 
 * 
+
 ### 7. Actions on Objectives
 
-* Lanzamiento de un mail a la lista de clientes con un archivo adjunto que se hace pasar por un reporte, pero en realidad está cargado con malware/ransomware.
-## Enlaces de Referencia
+* Se extraen los datos de la base de datos con la información de los clientes.
+* Se prepara un email simulando ser un reporte y se adjunta un archivo malicioso.
+* Se envía un email a la lista de clientes a través del servicio de envío de emails.
 
