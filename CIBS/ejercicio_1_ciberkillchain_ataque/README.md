@@ -25,7 +25,7 @@ El objetivo final del ataque es transmitir un ransomware enmascarado como un rep
 ### 1. Reconnaisssance
 > Búsqueda de vulnerabilidades y reconocimiento del objetivo para realizar el ataque.
 
-Técnicas utilizadas: [T1589](https://attack.mitre.org/techniques/T1589), [T1591](https://attack.mitre.org/techniques/T1591), [T1593](https://attack.mitre.org/techniques/T1593).
+Técnicas utilizadas: [T1589 - Gather Victim Identity Information](https://attack.mitre.org/techniques/T1589), [T1591 - Gather Victim Org Information](https://attack.mitre.org/techniques/T1591), [T1593 - Search Open Websites/Domains](https://attack.mitre.org/techniques/T1593).
 
 * Obtener información de los empleados de la empresa proveedora del servicio [[T1589.003](https://attack.mitre.org/techniques/T1589/003/)] y sus roles [[T1591.004](https://attack.mitre.org/techniques/T1591/004/)]. 
 * Específicamente se busca en redes sociales [[T1593.001](https://attack.mitre.org/techniques/T1593/001/)] esta información para encontrar empleados que puedan tener acceso a la base de datos de clientes.
@@ -33,7 +33,7 @@ Técnicas utilizadas: [T1589](https://attack.mitre.org/techniques/T1589), [T1591
 ### 2. Weaponization
 > Preparación de los recursos necesarios para ejecutar el plan de ataque.
 
-Técnicas utilizadas: [T1583](https://attack.mitre.org/techniques/T1583), [T1585](https://attack.mitre.org/techniques/T1585), [T1588](https://attack.mitre.org/techniques/T1588).
+Técnicas utilizadas: [T1583 - Acquire Infrastructure](https://attack.mitre.org/techniques/T1583), [T1585 - Establish Accounts](https://attack.mitre.org/techniques/T1585), [T1588 - Obtain Capabilities](https://attack.mitre.org/techniques/T1588).
 
 * Adquirir un Servidor Virtual (VPS) y un dominio para crear un sitio web que simule ser un sistema interno de la empresa.
 * Se establece un correo electrónico en base al dominio creado, desde donde se enviará un ataque de phishing [[T1585.002](https://attack.mitre.org/techniques/T1585/002)].
@@ -42,7 +42,7 @@ Técnicas utilizadas: [T1583](https://attack.mitre.org/techniques/T1583), [T1585
 ### 3. Delivery
 > Envío de los recursos establecidos anteriormente para lograr un acceso inicial al sistema.
 
-Técnicas utilizadas: [T1566](https://attack.mitre.org/techniques/T1566), [T1204](https://attack.mitre.org/techniques/T1204)
+Técnicas utilizadas: [T1566 - Phishing](https://attack.mitre.org/techniques/T1566), [T1204 - User Execution](https://attack.mitre.org/techniques/T1204)
 
 * Se envía un email de phishing que simule ser una alerta por parte del proveedor cloud, avisando que el sistema tiene un problema en la base de datos y requiere su atención [[T1566.002](https://attack.mitre.org/techniques/T1566/002/)].
 * El enlace envía al sitio web previamente preparado que simula ser el servicio de login del proveedor cloud y pide al usuario ingresar con sus datos [[T1204.001](https://attack.mitre.org/techniques/T1204/001/)].
@@ -51,7 +51,7 @@ Técnicas utilizadas: [T1566](https://attack.mitre.org/techniques/T1566), [T1204
 ### 4. Exploitation
 > Explotación de la vulnerabilidad y acceso inicial al sistema.
 
-Técnicas utilizadas: [T1078](https://attack.mitre.org/techniques/T1078)
+Técnicas utilizadas: [T1078 - Valid Accounts](https://attack.mitre.org/techniques/T1078)
 
 * Se usan las credenciales obtenidas en el paso anterior para acceder al proveedor cloud [[T1078.004](https://attack.mitre.org/techniques/T1078/004/)].
 * Como la cuenta es de administrador, se tienen todos los privilegios.
@@ -59,7 +59,7 @@ Técnicas utilizadas: [T1078](https://attack.mitre.org/techniques/T1078)
 ### 5. Installation
 > Ejecución del ataque dentro del sistema.
 
-Técnicas utilizadas: [[T1651](https://attack.mitre.org/techniques/T1651/)]
+Técnicas utilizadas: [[T1651 - Cloud Administration Command](https://attack.mitre.org/techniques/T1651/)]
 
 * Una vez dentro del sistema, se procede a tomar control administrativo del mismo.
 * Suponiendo que el acceso a la base de datos está configurada con IAM, entonces se genera un token de autentificación para poder realizar la conexión a la base de datos.
@@ -67,13 +67,13 @@ Técnicas utilizadas: [[T1651](https://attack.mitre.org/techniques/T1651/)]
 ### 6. Command & Control
 > Se establece un canal de comunicación para controlar remotamente a la víctima.
 
-Técnicas utilizadas: [T1090](https://attack.mitre.org/techniques/T1090/)
+Técnicas utilizadas: [T1090 - Proxy](https://attack.mitre.org/techniques/T1090/)
 
 * Para evitar la detección del origen del ataque se utilizan múltiples proxies para redirigir las comunicaciones a través de diferentes puntos [[T1090.003](https://attack.mitre.org/techniques/T1090/003/)].
 
 ### 7. Actions on Objectives
 
-Técnicas utilizadas: [T1119](https://attack.mitre.org/techniques/T1119/), [T1538](https://attack.mitre.org/techniques/T1538/)
+Técnicas utilizadas: [T1119 - Automated Collection](https://attack.mitre.org/techniques/T1119/), [T1538 - Cloud Service Dashboard](https://attack.mitre.org/techniques/T1538/)
 
 * Se identifican los datos de la base de datos con la información de los clientes utilizando la conexión a la base de datos y una aplicación de ETL (Extract, Transform, Load). 
 * Se prepara un email simulando ser un reporte y se adjunta un archivo malicioso.
