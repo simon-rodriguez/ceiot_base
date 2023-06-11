@@ -14,9 +14,6 @@ Armar una cyberkillchain usando técnicas de la matriz de Att&ck para un escenar
 
 El sistema está compuesto por un módulo IOT que sensa la humedad y temperatura de un recinto. Los datos son enviados a través del protocolo MQTT a un proveedor en la nube (AWS en este caso) donde se reciben y almacenan los datos, para luego ser accedidos en el front-end por el usuario (bien sea por una aplicación o un sitio web). El usuario puede descargar reportes y realizar configuraciones al sistema, además de crear alertas y reportes personalizados. El servicio es usado por varios clientes diferentes.
 
-Referencia de la Arquitectura (*pendiente actualización con AWS*):
-![Arquitectura Cloud del TP de DAIoT](/ceiot_base/img/arquitectura-cloud_daiot.jpg)
-
 ## Resolución
 
 ### Objetivo del Ataque
