@@ -38,8 +38,8 @@ Técnicas utilizadas: [T1583 - Acquire Infrastructure](https://attack.mitre.org/
 * Se establece un correo electrónico en base al dominio creado, desde donde se enviará un ataque de phishing [[T1585.002](https://attack.mitre.org/techniques/T1585/002)].
 * Adquirir malware que sirva para ejecutar el secuestro de los sistemas objetivo (ransomware) [[T1588.001](https://attack.mitre.org/techniques/T1588/001)]. Se obtiene un ransomware del estilo "Medusa" que es Ransomware-as-a-Service (RaaS), de modo que la infraestructura sea gestionada por el grupo.
 
-## Primer ciclo de Ataque
-### Delivery
+### Primer ciclo de Ataque
+#### Delivery
 > Envío de los recursos establecidos anteriormente para lograr un acceso inicial al sistema.
 
 Técnicas utilizadas: [T1566 - Phishing](https://attack.mitre.org/techniques/T1566), [T1204 - User Execution](https://attack.mitre.org/techniques/T1204)
@@ -48,7 +48,7 @@ Técnicas utilizadas: [T1566 - Phishing](https://attack.mitre.org/techniques/T15
 * El enlace envía al sitio web previamente preparado que simula ser el servicio de login del proveedor cloud y pide al usuario ingresar con sus datos [[T1204.001](https://attack.mitre.org/techniques/T1204/001/)].
 * El usuario ingresa sus datos, los cuales son enviados a la base de datos del servidor privado y luego es inmediatamente redirigido al sitio real de login, donde recibe un error de clave errónea.
 * El usuario ingresa al sistema y no percibe que fue víctima del ataque.
-### Exploitation
+#### Exploitation
 > Explotación de la vulnerabilidad y acceso inicial al sistema.
 
 Técnicas utilizadas: [T1078 - Valid Accounts](https://attack.mitre.org/techniques/T1078)
@@ -56,7 +56,7 @@ Técnicas utilizadas: [T1078 - Valid Accounts](https://attack.mitre.org/techniqu
 * Se usan las credenciales obtenidas en el paso anterior para acceder al proveedor cloud [[T1078.004](https://attack.mitre.org/techniques/T1078/004/)].
 * Como la cuenta es de administrador, se tienen todos los privilegios.
 
-### Installation
+#### Installation
 > Ejecución del ataque dentro del sistema.
 
 Técnicas utilizadas: [[T1651 - Cloud Administration Command](https://attack.mitre.org/techniques/T1651/)]
@@ -65,7 +65,7 @@ Técnicas utilizadas: [[T1651 - Cloud Administration Command](https://attack.mit
 * Suponiendo que el acceso a la base de datos está configurada con IAM, entonces se genera un token de autentificación para poder realizar la conexión a la base de datos de clientes.
 * Se abren los puertos y las IPs para poder realizar conexiones desde otras IPs.
 
-### Command & Control
+#### Command & Control
 > Se establece un canal de comunicación para acceder a la base de datos.
 
 Técnicas utilizadas: [T1090 - Proxy](https://attack.mitre.org/techniques/T1090/)
@@ -73,13 +73,13 @@ Técnicas utilizadas: [T1090 - Proxy](https://attack.mitre.org/techniques/T1090/
 * Se conecta a la base de datos utilizando el token creado en el dashboard del proveedor Cloud.
 * Para evitar la detección del origen del ataque se utilizan múltiples proxies para redirigir las comunicaciones a través de diferentes puntos [[T1090.003](https://attack.mitre.org/techniques/T1090/003/)].
 
-### (Partial) Actions on Objectives
+#### (Partial) Actions on Objectives
 
 Técnicas utilizadas: [T1119 - Automated Collection](https://attack.mitre.org/techniques/T1119/).
 
 * Se identifican los datos de la base de datos con la información de los clientes utilizando la conexión a la base de datos y una aplicación de ETL (Extract, Transform, Load). 
 
-## Segundo Ciclo de Ataque
+### Continuación Ataque Principal
 
 ### 3. Delivery
 > Envío de un link para descargar el Malware utilizando los recursos establecidos anteriormente.
