@@ -25,7 +25,7 @@ El objetivo final del ataque es transmitir un ransomware enmascarado como un rep
 Técnicas utilizadas: [T1589 - Gather Victim Identity Information](https://attack.mitre.org/techniques/T1589), [T1591 - Gather Victim Org Information](https://attack.mitre.org/techniques/T1591), [T1593 - Search Open Websites/Domains](https://attack.mitre.org/techniques/T1593).
 
 * Obtener información de los empleados de la empresa proveedora del servicio [[T1589.003](https://attack.mitre.org/techniques/T1589/003/)] y sus roles [[T1591.004](https://attack.mitre.org/techniques/T1591/004/)]. 
-* Específicamente se busca en redes sociales [[T1593.001](https://attack.mitre.org/techniques/T1593/001/)] esta información para encontrar empleados que puedan tener acceso a la base de datos de clientes.
+* Específicamente se busca en redes sociales esta información para encontrar empleados que puedan tener acceso a la base de datos de clientes [[T1593.001](https://attack.mitre.org/techniques/T1593/001/)]. Se crea una cuenta con una persona falsa, simulando ser miembro de un equipo de recursos humanos/reclutamiento, para no levantar sospechas y visualizar todo el perfil de la víctima. [[T1585.001](https://attack.mitre.org/techniques/T1585/001/)]
 * Se analiza el funcionamiento de la empresa en cuanto al sistema de envío de reportes, haciéndose pasar por un cliente. Con esto se sabe que la empresa envía a todos sus clientes un reporte mensual con un resumen de los datos obtenidos en el mes y un análisis. [[T1591.002/.003](https://attack.mitre.org/techniques/T1591/)]
 
 ### 2. Weaponization
