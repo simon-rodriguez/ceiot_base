@@ -71,6 +71,7 @@ Técnicas de mitigación: [M1037 - Filter Traffic Network](https://attack.mitre.
 Técnicas de mitigación: [M1026 - Privileged Account Management](https://attack.mitre.org/mitigations/M1026/)
 
 * Para evitar que se puedan crear nuevos roles o tokens de autentificación en caso de que alguna cuenta quede comprometida, se debe limitar el número de usuarios con privilegios para realizar estas acciones.
+* Adicionalmente se pueden configurar alertas que se envíen cuando la configuración de IAM cambie ([ejemplo en AWS](https://aws.amazon.com/es/blogs/security/how-to-receive-alerts-when-your-iam-configuration-changes/).)
 
 ### 4. Exploitation (primer ciclo de ataque)
 
